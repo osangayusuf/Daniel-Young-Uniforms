@@ -11,8 +11,24 @@ export default {
 
     theme: {
         extend: {
+            colors: {
+                "whiteish": "#FCFDFD",
+                "off-white": "#F0EFF8",
+                "blackish": "#060414",
+                "dark-blue": "#1C1364",
+                "brown-1": "#504747",
+                "brown-2": "#4B4A52",
+                "light-orange": "#EE845C",
+                "light-green": "#379B59",
+                "light-gray": "#EEE4E0",
+                "dark-gray": "#737677",
+                "light-purple": "#686298",
+                "profile-header": "#34333A",
+                "forgot-password": "#A79EBA",
+            },
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                "poppins": ["Poppins", "sans-serif"],
+                "ibm": ["IBM Plex Sans", "sans-serif"],
             },
         },
     },

@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\ServiceProvider;
+
 return [
 
     /*
@@ -122,5 +124,20 @@ return [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
+
+//    'aliases' => [
+//        /*
+//        * Aliases
+//        */
+//        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+//    ],
+//
+//    'providers' => ServiceProvider::defaultProviders()->merge([
+//        /*
+//         * Package Service Providers...
+//         */
+//        Maatwebsite\Excel\ExcelServiceProvider::class,
+//
+//    ])->toArray()
 
 ];
