@@ -89,8 +89,8 @@
 
 
             </div>
-            <div class="mt-28 flex justify-end gap-x-10">
-                <div class="basis-[60%]">
+            <div class="mt-28 flex gap-x-10">
+                <div class="basis-full">
                     {{ $products->links() }}
                 </div>
             </div>

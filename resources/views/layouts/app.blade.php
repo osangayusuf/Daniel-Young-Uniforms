@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ env('APP_NAME') }}</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 </head>
@@ -31,7 +35,7 @@
     <!-- NAV BAR -->
     <div class="flex flex-row w-full h-20 bg-dark-blue items-center rounded-b-2xl relative">
         <a href="{{ route('home') }}" class="basis-2/12 max-lg:basis-1/12">
-            <img src="/images/logo.png" alt="Logo" class="w-auto h-full max-w-16 lg:max-w-28 mx-auto">
+            <img src="/images/nav-logo.png" alt="Logo" class="w-auto h-full max-w-16 lg:max-w-28 mx-auto">
         </a>
 
         <ul class="text-light-gray max-lg:space-x-3  space-x-7 basis-5/12 text-center max-lg:text-sm max-lg:mr-2 hidden lg:block">

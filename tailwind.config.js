@@ -25,6 +25,8 @@ export default {
                 "light-purple": "#686298",
                 "profile-header": "#34333A",
                 "forgot-password": "#A79EBA",
+                "auth-header": "#707070",
+                "form-border": "#5E5D5D80"
             },
             fontFamily: {
                 "poppins": ["Poppins", "sans-serif"],

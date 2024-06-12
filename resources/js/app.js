@@ -10,6 +10,8 @@ import('./similar-slider')
 
 import('./logo-name-setter')
 
+import('./privacy-policy')
+
 import Alpine from 'alpinejs';
 
 window.Alpine = Alpine;
