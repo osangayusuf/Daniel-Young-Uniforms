@@ -13,10 +13,7 @@ return new class extends Migration {
             $table->foreignId('product_id')->constrained('products');
             $table->string('colour');
             $table->integer('quantity');
-            $table->integer('chest_size');
-            $table->integer('arm_length');
-            $table->integer('neck_size');
-            $table->integer('waist_size');
+            $table->string('size');
             $table->string('custom_logo')->nullable();
             $table->longText('further_info')->nullable();
             $table->timestamps();

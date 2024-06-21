@@ -2,15 +2,21 @@ import './bootstrap';
 
 import('./carousel');
 
-import('./togglenav');
+import('./toggle-nav');
 
-import('./toggleshopmenu')
+import('./toggle-profile-menu')
+
+import('./toggle-shop-menu')
 
 import('./similar-slider')
 
 import('./logo-name-setter')
 
 import('./privacy-policy')
+
+import('./dialog')
+
+import('./shop-dropdown')
 
 import Alpine from 'alpinejs';
 

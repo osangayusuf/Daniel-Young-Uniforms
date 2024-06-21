@@ -2,18 +2,22 @@
 
     <!-- MAIN BODY WRAPPER -->
     <div class="w-[97%] mx-auto">
-        <!-- TOP SECTION -->
-        <div class="flex items-center gap-1 text-xs md:text-base mt-16">
-            <a href="{{ route('home') }}" class="mr-3 hover:scale-125 transition-all">
-                <i class="fa-solid fa-house text-dark-blue text-2xl"></i>
-            </a>
-            <i class="fa-solid fa-chevron-right"></i>
-            <p class="ml-2">About</p>
-        </div>
+
+        <!--   ABOUT BODY WRAPPER -->
+        <div class="w-11/12 mt-16 ml-4">
+
+            <!-- TOP SECTION -->
+            <div class="flex items-center gap-1 text-xs md:text-base">
+                <a href="{{ route('home') }}" class="mr-3 hover:scale-125 transition-all">
+                    <i class="fa-solid fa-house text-dark-blue text-2xl"></i>
+                </a>
+                <i class="fa-solid fa-chevron-right"></i>
+                <p class="ml-2">About</p>
+            </div>
 
 
-        <!-- ABOUT SECTION WRAPPER -->
-        <div class="w-[87%] mx-auto grid grid-cols-1 lg:grid-cols-2 grid-flow-row gap-12 lg:gap-24 mt-16 text-xs sm:text-sm md:text-base">
+            <!-- ABOUT SECTION WRAPPER -->
+            <div class="w-[87%] mx-auto grid grid-cols-1 lg:grid-cols-2 grid-flow-row gap-12 lg:gap-24 mt-16 text-xs md:text-sm">
 
             <div class="space-y-5">
                 <p>
@@ -52,6 +56,8 @@
                 </p>
             </div>
 
+
+        </div>
 
         </div>
     </div>

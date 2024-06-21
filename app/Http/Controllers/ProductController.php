@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Imports\ProductsImport;
-use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -11,16 +10,31 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
 {
-    //Display shop view
-    public function shop (Request $request)
+
+    public function preShop()
     {
+        return view('pages.pre-shop');
+    }
+
+    //Display shop view
+    public function shop(Request $request)
+    {
+        $sub_categories = Product::whereCategoryId($request->category)->distinct()->get('sub_category');
+        foreach ($sub_categories as $sub_category) {
+            $classifications = Product::whereSubCategory($sub_category->sub_category)->distinct()->get('classification');
+            $sub_category['classification'] = $classifications;
+
+        }
+
         return view('pages.shop', [
             'products' => Product::orderBy('id')
-                ->filter($request->only('search', 'category', 'sub'))
+                ->filter($request->only('search', 'category', 'sub', 'class'))
                 ->paginate(9)
-                ->withPath('/shop/?search=' . $request->search . '&category=' . $request->category . '&sub=' . $request->sub),
-            'sub_category' => Product::whereCategoryId($request->category)->distinct()->get('sub_category'),
+                ->withPath(route('shop') . '?search=' . $request->search . '&category=' . $request->category . '&sub=' . $request->sub . '&class=' . $request->class),
+            'sub_categories' => $sub_categories,
             'current_category' => $request->category,
+            'current_sub_category' => $request->sub,
+
         ]);
     }
 
@@ -35,7 +49,7 @@ class ProductController extends Controller
 
     public function importProducts()
     {
-        Excel::import(new ProductsImport, 'products.xlsx');
+        Excel::import(new ProductsImport, 'products-file.xlsx');
 
         return redirect('/')->with('message', 'Products imported successfully');
     }

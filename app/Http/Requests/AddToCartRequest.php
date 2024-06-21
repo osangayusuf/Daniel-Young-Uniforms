@@ -13,10 +13,7 @@ class AddToCartRequest extends FormRequest
             'product_id' => ['required', 'exists:products,id'],
             'colour' => ['required', 'string'],
             'quantity' => ['required', 'integer', 'min:1'],
-            'chest_size' => ['required', 'integer'],
-            'arm_length' => ['required', 'integer'],
-            'neck_size' => ['required', 'integer'],
-            'waist_size' => ['required', 'integer'],
+            'size' => ['required', 'string'],
             'custom_logo' => ['nullable', 'file', 'image', 'max:2048'],
             'further_info' => ['nullable', 'string', 'max:255']
         ];

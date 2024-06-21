@@ -12,10 +12,7 @@ class Cart extends Model
         'product_id',
         'colour',
         'quantity',
-        'chest_size',
-        'arm_length',
-        'neck_size',
-        'waist_size',
+        'size',
         'custom_logo',
         'further_info'
     ];

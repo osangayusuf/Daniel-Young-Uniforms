@@ -10,11 +10,12 @@ return new class extends Migration {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('sub_category');
-            $table->boolean('availability')->default(true);
             $table->foreignId('category_id');
+            $table->string('sub_category');
+            $table->string('classification')->nullable();
+            $table->boolean('availability')->default(true);
             $table->string('colours');
-            $table->integer('price');
+            $table->string('sizes');
             $table->longText('description');
             $table->string('image1');
             $table->string('image2');

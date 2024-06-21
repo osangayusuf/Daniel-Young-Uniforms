@@ -46,7 +46,7 @@
     </div>
     <!-- MAIN BODY WRAPPER -->
     <div class="w-[85%] mx-auto">
-        <a href="" class="mt-24 block max-lg:text-sm text-dark-blue font-bold space-x-3">
+        <a href="{{ route('home') }}" class="mt-24 block max-lg:text-sm text-dark-blue font-bold space-x-3">
             <i class="fa-solid fa-arrow-left"></i>
             <span>Go back</span>
         </a>

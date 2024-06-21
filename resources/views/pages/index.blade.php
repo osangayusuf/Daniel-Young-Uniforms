@@ -33,7 +33,7 @@
             </div>
             <div class="lg:basis-[46%] w-full max-lg:flex max-lg:flex-row max-lg:h-36 max-lg:absolute bottom-0 bg-dark-blue">
                 <img src="/images/logo.png" alt="Logo" class="mx-auto basis-2/5 object-scale-down">
-                <a href="{{ route('shop') }}" class="basis-3/5 max-lg:flex items-center justify-center">
+                <a href="{{ route('pre-shop') }}" class="basis-3/5 max-lg:flex items-center justify-center">
                     <p class="bg-whiteish text-dark-blue font-semibold flex items-center justify-center w-1/2 h-12 max-lg:h-8 max-lg:text-xs mx-auto rounded-xl max-lg:rounded-sm">
                         Shop now
                     </p>

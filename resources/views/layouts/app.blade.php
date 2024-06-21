@@ -43,7 +43,7 @@
                 <a href="{{ route('home') }}" class="hover:text-light-orange">Home</a>
             </li>
             <li class="inline">
-                <a href="{{ route('shop') }}" class="hover:text-light-orange">Shop</a>
+                <a href="{{ route('pre-shop') }}" class="hover:text-light-orange">Shop</a>
             </li>
             <li class="inline">
                 <a href="{{ route('about') }}" class="hover:text-light-orange">About</a>
@@ -55,7 +55,7 @@
         <form action="{{ route('shop') }}" method="GET" class="basis-4/12 sm:basis-6/12 lg:basis-3/12 mx-auto">
             <div class="max-w-xl relative flex text-blackish items-center text-[8px] sm:text-base">
                 <input type="text" name="search" id="search"
-                       class="w-full border px-4 py-1 rounded-md focus:outline-none"
+                       class="w-full border px-4 py-1 rounded-md focus:outline-none text-xs sm:text-base"
                        placeholder="Search">
                 <button class="absolute right-4 max-md:right-2 w-5" type="submit">
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -75,7 +75,7 @@
                         </i>
                     </div>
                 </a>
-                <a href="" class="relative basis-1/5 w-10">
+                <a href="{{ route('profile.edit') }}" class="relative basis-1/5 w-10">
                     <i class="fa-solid fa-user"></i>
                 </a>
             </div>
@@ -94,7 +94,7 @@
                     <a href="{{ route('home') }}" class="block px-6 py-3 rounded-lg mx-1 hover:bg-light-purple hover:text-whiteish whitespace-nowrap">Home</a>
                 </li>
                 <li>
-                    <a href="{{ route('shop') }}"  class="block px-6 py-3 rounded-lg mx-1 hover:bg-light-purple hover:text-whiteish whitespace-nowrap">Shop</a>
+                    <a href="{{ route('pre-shop') }}"  class="block px-6 py-3 rounded-lg mx-1 hover:bg-light-purple hover:text-whiteish whitespace-nowrap">Shop</a>
                 </li>
                 <li>
                     <a href="{{ route('about') }}"  class="block px-6 py-3 rounded-lg mx-1 hover:bg-light-purple hover:text-whiteish whitespace-nowrap">About</a>
@@ -108,17 +108,31 @@
 
     {{ $slot }}
 
-    <!-- BOTTOM BANNER SECTION -->
-    <div class="flex flex-row bg-dark-blue py-6 px-5 sm:px-10 lg:px-20 tracking-tighter sm:tracking-normal text-whiteish items-center mt-60">
-        <p class="text-xs sm:text-base md:text-xl lg:text-3xl basis-3/5">
-            Sign up to receive updates on current deals and new arrivals
-        </p>
-        <a href="{{ route('register') }}" class="basis-2/5 flex place-content-end">
-            <p class="text-xs sm:text-base whitespace-nowrap text-dark-blue bg-whiteish py-1 px-2 rounded-sm lg:py-2 lg:px-5 text-center lg:rounded-md">
-                SIGN UP FOR FREE
+    @guest()
+        <!-- BOTTOM BANNER SECTION -->
+        <div class="flex flex-row bg-dark-blue py-6 px-5 sm:px-10 lg:px-20 tracking-tighter sm:tracking-normal text-whiteish items-center mt-60">
+            <p class="text-xs sm:text-base md:text-xl lg:text-3xl basis-3/5">
+                Sign up to receive updates on current deals and new arrivals
             </p>
-        </a>
-    </div>
+            <a href="{{ route('register') }}" class="basis-2/5 flex place-content-end">
+                <p class="text-xs sm:text-base whitespace-nowrap text-dark-blue bg-whiteish py-1 px-2 rounded-sm lg:py-2 lg:px-5 text-center lg:rounded-md">
+                    SIGN UP FOR FREE
+                </p>
+            </a>
+        </div>
+    @else()
+        <!-- BOTTOM BANNER SECTION -->
+        <div class="flex flex-row bg-dark-blue py-6 px-5 sm:px-10 lg:px-20 tracking-tighter sm:tracking-normal text-whiteish items-center mt-60">
+            <p class="text-xs sm:text-base md:text-xl lg:text-3xl basis-3/5">
+                Visit our shop to see view our wide selection of uniforms
+            </p>
+            <a href="{{ route('pre-shop') }}" class="basis-2/5 flex place-content-end">
+                <p class="text-xs sm:text-base whitespace-nowrap text-dark-blue bg-whiteish py-1 px-2 rounded-sm lg:py-2 lg:px-5 text-center lg:rounded-md">
+                    VISIT SHOP
+                </p>
+            </a>
+        </div>
+    @endguest
 
     <x-footer :categories="$categories"></x-footer>
 

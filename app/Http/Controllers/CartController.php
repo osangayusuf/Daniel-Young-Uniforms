@@ -7,6 +7,7 @@ use App\Models\Cart;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CartController extends Controller
 {
@@ -28,16 +29,15 @@ class CartController extends Controller
         if ($request->hasFile('custom_logo')) {
             $origExt = $request->file('custom_logo')->getClientOriginalExtension();
             $filename = 'custom_logo' . $formFields['product_id']. $formFields['colour'] . time() . '.' . $origExt;
-            $request->file('custom_logo')->storeAs('custom-logo', $filename);
-
-            $formFields['custom_logo'] = $filename;
+            $logo = $request->file('custom_logo')->storeAs('images/custom-logo', strtolower($filename));
+            $formFields['custom_logo'] = $logo;
         }
 
-        $cart = Cart::create($formFields);
+        Cart::create($formFields);
 
         $productName = Product::firstWhere('id', $formFields['product_id'])->name;
 
-        return redirect('/shop')->with('message', $productName . ' added to cart successfully.');
+        return redirect()->back()->with('message', $productName . ' added to cart successfully.');
 
     }
 
@@ -58,12 +58,12 @@ class CartController extends Controller
     {
         $data = $request->validated();
 
-        if ($request->hasFile('custom_logo')) {
+        if ($request->hasFile('custom_logo') ?? false) {
+            Storage::delete('custom-logo/' . $cart->custom_logo);
             $origExt = $request->file('custom_logo')->getClientOriginalExtension();
             $filename = 'custom_logo' . $data['product_id']. $data['colour'] . time() . '.' . $origExt;
-            $request->file('custom_logo')->storeAs('custom-logo', $filename);
-
-            $data['custom_logo'] = $filename;
+            $logo = $request->file('custom_logo')->storeAs('images/custom-logo', strtolower($filename));
+            $data['custom_logo'] = $logo;
         }
 
         $cart->update($data);
@@ -75,6 +75,6 @@ class CartController extends Controller
     {
         $cart->delete();
 
-        return back()->with('message', $cart->product->name . " order removed");
+        return back()->with('message', $cart->product->name . " removed from cart successfully.");
     }
 }

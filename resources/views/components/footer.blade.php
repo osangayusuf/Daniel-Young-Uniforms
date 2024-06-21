@@ -16,7 +16,7 @@
 
             </li>
             <li>
-                <a href="{{ route('shop') }}">Shop</a>
+                <a href="{{ route('pre-shop') }}">Shop</a>
             </li>
             <li>
                 <a href="{{ route('about') }}">About</a>

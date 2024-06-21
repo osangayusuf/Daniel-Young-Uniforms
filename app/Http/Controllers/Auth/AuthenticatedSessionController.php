@@ -28,7 +28,13 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('home', absolute: false))->with('message', 'Login successful');
+//        dd(Auth::user()->usertype);
+
+        if (Auth::user()->usertype == 'admin') {
+            return redirect()->route('admin.home')->with('message', 'Login successful');
+        } else {
+            return redirect()->intended(route('home', absolute: false))->with('message', 'Login successful');
+        }
     }
 
     /**
@@ -36,12 +42,18 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        $usertype = Auth::user()->usertype;
+
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        if ($usertype == 'admin') {
+            return redirect()->route('admin.home');
+        } else {
+            return redirect()->route('home');
+        }
     }
 }
